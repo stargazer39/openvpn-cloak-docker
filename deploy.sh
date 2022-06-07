@@ -50,4 +50,5 @@ echo "ck-client -c ckclient-zoom.json -s $HOST  -p 444" > ./client/start.bat
 zip -r client.zip ./client
 
 # Config firewall
+ufw enable
 ufw allow 444
