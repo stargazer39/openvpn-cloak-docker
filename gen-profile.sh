@@ -21,3 +21,4 @@ docker run -v $DATA:/etc/openvpn --rm $REPO_NAME ovpn_getclient $1 > $PROFILES/$
 echo "route $HOST 255.255.255.255 net_gateway" >> $PROFILES/$1.ovpn
 echo "ignore-unknown-option block-outside-dns" >> $PROFILES/$1.ovpn
 echo "setenv opt block-outside-dns" >> $PROFILES/$1.ovpn
+echo "redirect-gateway ipv6" >> $PROFILES/$1.ovpn
