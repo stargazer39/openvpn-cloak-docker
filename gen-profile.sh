@@ -1,5 +1,5 @@
 #!/bin/bash
-DATA=$(readlink -f config)
+DATA=$(readlink -f openvpn-config)
 REPO_NAME="stargazer/openvpn-docker"
 PROFILES=$(readlink -f profile)
 HOST=$(curl checkip.amazonaws.com)
