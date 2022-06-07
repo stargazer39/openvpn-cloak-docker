@@ -6,7 +6,7 @@ services:
     ports:
       - "1194:1194"
     volumes:
-      - ./config:/etc/openvpn
+      - ./openvpn-config:/etc/openvpn
     cap_add:
       - NET_ADMIN
       - NET_RAW
@@ -17,4 +17,4 @@ services:
     environment:
       - PORT=444
     volumes:
-      - ./cloak:/config
+      - ./cloak-config:/config
