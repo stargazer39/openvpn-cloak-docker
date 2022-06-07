@@ -13,7 +13,6 @@ fi
 if [ ! -d $PROFILES ] 
 then
     mkdir $PROFILES
-    exit
 fi
 
 docker run -v $DATA:/etc/openvpn --rm -it $REPO_NAME easyrsa build-client-full $1 nopass
