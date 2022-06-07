@@ -2,6 +2,7 @@ version: "3.3"
 services:
   openvpn:
     image: stargazer/openvpn-docker
+    restart: unless-stopped
     ports:
       - "1194:1194"
     volumes:
@@ -12,6 +13,7 @@ services:
   cloak:
     build: ./cloak-docker
     network_mode: "host"
+    restart: unless-stopped
     environment:
       - PORT=444
     volumes:
