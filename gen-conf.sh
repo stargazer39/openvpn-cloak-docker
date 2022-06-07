@@ -1,5 +1,5 @@
 #!/bin/bash
-DATA=$(readlink -f config)
+DATA=$(readlink -f openvpn-config)
 REPO_NAME="stargazer/openvpn-docker"
 
 if [ -d $DATA ] 
