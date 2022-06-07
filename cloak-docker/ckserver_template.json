@@ -1,0 +1,11 @@
+{
+  "ProxyBook": {
+   "openvpn": ["tcp", "127.0.0.1:1194"]
+ },
+  "BindAddr": [],
+  "BypassUID": [],
+  "RedirAddr": "zoom.us",
+  "PrivateKey": "",
+  "AdminUID": "",
+  "DatabasePath": "userinfo.db"
+}

@@ -9,3 +9,10 @@ services:
     cap_add:
       - NET_ADMIN
       - NET_RAW
+  cloak:
+    build: ./cloak-docker
+    network_mode: "host"
+    environment:
+      - PORT=444
+    volumes:
+      - ./cloak:/config
