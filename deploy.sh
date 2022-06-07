@@ -28,7 +28,7 @@ apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 apt-get -y install docker-compose 
 systemctl enable docker --now
 
-sleep(5)
+sleep 5
 
 if [ ! -d "cloak-docker" ]
 then
