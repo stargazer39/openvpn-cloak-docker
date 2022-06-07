@@ -1,4 +1,7 @@
 config
 profile
 cloak
+client
+*.zip
+*.tar
 .env*

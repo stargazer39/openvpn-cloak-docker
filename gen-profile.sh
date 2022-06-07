@@ -2,7 +2,7 @@
 DATA=$(readlink -f config)
 REPO_NAME="stargazer/openvpn-docker"
 PROFILES=$(readlink -f profile)
-HOST=$(dig +short myip.opendns.com @resolver1.opendns.com)
+HOST=$(curl checkip.amazonaws.com)
 
 if [ -z "$1" ]
 then
