@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  openvpn:
+    image: stargazer/openvpn-docker
+    ports:
+      - "1194:1194"
+    volumes:
+      - ./config:/etc/openvpn
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
