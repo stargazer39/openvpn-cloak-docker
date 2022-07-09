@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OPENVPN_CONFIGS="configs/openvpn"
-CLOAK_CONFIGS="configs/openvpn"
+CLOAK_CONFIGS="configs/cloak"
 source ./ubuntu.sh
 
 if [ "$EUID" -ne 0 ]
