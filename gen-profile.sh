@@ -1,7 +1,7 @@
 #!/bin/bash
-DATA=$(readlink -f openvpn-config)
+DATA=$(pwd)/configs/openvpn
 REPO_NAME="stargazer/openvpn-docker"
-PROFILES=$(readlink -f profile)
+PROFILES=$(pwd)/profile
 HOST=$(curl checkip.amazonaws.com)
 
 if [ -z "$1" ]

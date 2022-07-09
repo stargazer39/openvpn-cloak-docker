@@ -1,8 +1,5 @@
-cloak-config
-config
+configs
 profile
-openvpn-config
-cloak
 client
 *.zip
 *.tar

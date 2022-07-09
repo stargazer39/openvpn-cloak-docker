@@ -8,17 +8,43 @@ def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
 config_path = "/config/ckserver.json"
-ckjson = ""
+ckjson = {
+  "ProxyBook": {},
+  "BindAddr": [],
+  "BypassUID": [],
+  "RedirAddr": "zoom.us",
+  "PrivateKey": "",
+  "AdminUID": "",
+  "DatabasePath": "userinfo.db"
+}
 
-with open("./ckserver_template.json", mode='r') as ckfile:
-    ckjson = json.loads(ckfile.read())
-    ckfile.close()
-    
+try:
+    with open(config_path, mode='r') as ckfile:
+        ckjson = json.loads(ckfile.read())
+        ckfile.close()
+except Exception as e:
+    eprint(e)
+
 port = "444"
+
 try:
     port = os.environ["PORT"]
 except Exception as e:
     eprint("No PORT in environment vars")
+    eprint(e)
+
+try:
+    ckjson["ProxyBook"] = json.loads(os.environ["PROXY_BOOK"])
+except Exception as e:
+    eprint("No PORT in environment vars")
+    eprint(e)
+
+try:
+    ckjson["RedirAddr"] = os.environ["SPOOF_ADDRESS"]
+except Exception as e:
+    eprint("No SPOOF_ADDRESS in environment vars")
+    eprint(e)
+
 
 if os.path.exists(config_path) :
     eprint("Config already exists")
@@ -91,12 +117,12 @@ else:
 
             print(keys_string, file=keys)
 
-            with open(config_path, mode='w') as config :
-                ck_json_string =  json.dumps(ckjson, indent=4)
-                print(ck_json_string, file=config)
-
             with open("/config/ckclient-zoom.json", mode='w') as ckc:
                 print(sevice_string, file=ckc)
+
+with open(config_path, mode='w') as config :
+    ck_json_string =  json.dumps(ckjson, indent=4)
+    print(ck_json_string, file=config)
 
 # Start all processes etc.
 ck_server = subprocess.Popen(["ck-server","-c","/config/ckserver.json"])

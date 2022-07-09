@@ -1,0 +1,4 @@
+OPENVPN_PORT=1194
+CLOAK_PORT=444
+SPOOF_ADDRESS=zoom.us
+PROXY_BOOK={ "openvpn": ["tcp", "127.0.0.1:1194"] }

@@ -4,17 +4,19 @@ services:
     image: stargazer/openvpn-docker
     restart: unless-stopped
     ports:
-      - "1194:1194"
+      - "${OPENVPN_PORT}:1194"
     volumes:
-      - ./openvpn-config:/etc/openvpn
+      - ./configs/openvpn:/etc/openvpn
     cap_add:
       - NET_ADMIN
       - NET_RAW
   cloak:
-    build: ./cloak-docker
+    build: ./cloak
     network_mode: "host"
     restart: unless-stopped
     environment:
-      - PORT=444
+      - PORT=${CLOAK_PORT}
+      - PROXY_BOOK=${PROXY_BOOK}
+      - SPOOF_ADDRESS=${SPOOF_ADDRESS}
     volumes:
-      - ./cloak-config:/config
+      - ./configs/cloak:/config
