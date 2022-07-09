@@ -20,3 +20,4 @@ services:
       - SPOOF_ADDRESS=${SPOOF_ADDRESS}
     volumes:
       - ./configs/cloak:/config
+
