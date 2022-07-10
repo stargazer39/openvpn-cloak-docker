@@ -341,8 +341,8 @@ user nobody
 group nogroup
 
 # StargazeR's optimisations
-sndbuf 512000
-rcvbuf 512000
+sndbuf 0
+rcvbuf 0
 push "sndbuf 512000"
 push "rcvbuf 512000"
 EOF
